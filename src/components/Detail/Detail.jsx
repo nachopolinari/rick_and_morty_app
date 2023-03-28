@@ -9,8 +9,9 @@ const Detail = (props) => {
 
     const [character, setCharacter] = useState({})
 
+    //el USEEFFECT escrito de esta forma trabaja directamente cuando el componente se monta ("comoponent DID mount")
     useEffect(() => { // este código es el que buscará al personaje de la API cada vez que el componente se monte. Y luego, cada vez que se desmonte, borrará su información. 
-        axios(`https://rickandmortyapi.com/api/character/${params.detail_Id}`)
+        axios(`https://rickandmortyapi.com/api/character/${params.id}`)
             .then((response) => setCharacter(response.data))
     }, [])
     //esto tmb podia ser  
@@ -37,18 +38,25 @@ const Detail = (props) => {
         //     "Error:  Cannot read properties of undefined"-> atento que esto va a pasar siempre*/ } </h4> 
         // </div>
  
-        //existe character.name ? pintame esto: sino pintame loading...
+        //Existe character.name ? Pintame esto : Sino pintame LOADING...
         <div> 
             {character.name ? (  <>
-                <h2>{character.name}</h2>
+            <h2>Detail´s:</h2>
+                <h3>Name:{character.name}</h3>
                 <img src={character.image} alt={character.name} />
-                <p>{character.status}</p>
-                <p>{character.species}</p>
-                <p>{character.gender}</p>
-                <p>{character.origin?.name}</p>
+                <h3>{character.status}</h3>
+                <h3>{character.species}</h3>
+                <h3>{character.gender}</h3>
+                <h3>{character.origin?.name}</h3>
             </> ) : (  <h3>Loading...</h3> )}
         </div> //
     )
 }
+
+// EXTRA 2: Ahora te desafiamos a que crees un nuevo componente llamado Error. A este componente le podrás dar los estilos que quieras, pero la idea es que se muestre un mensaje de error 404. ¡Puedes inspirarte en este ejemplo!
+
+// El desafío es el siguiente: haz que este componente se muestre cada vez que el usuario ingrese a cualquier otra ruta que no exista. Es decir que 
+
+//ejemplo: https://github.com/errroorrxd
 
 export default Detail;

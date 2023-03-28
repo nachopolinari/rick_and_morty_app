@@ -1,8 +1,9 @@
 import CardItem from "../CardItem/CardItem";
+import { CardsListContainer } from "./styledComponentsCardList";
 
-const CardsList = (props) => {/**lo que recibo en el obejto props es un array characters con objetos dentro */
+const CardsList = (props) => {/**lo que recibo en el objeto props es un array characters con objetos dentro */
     return (
-        <div>
+        <CardsListContainer /**esto antes era un div pero lo cambié por CardsListContainer para darle estilo con styled-component */> 
             {props.characters.map((character) => {/**mapeo el array characters (llamandolo desde el obj props), y por cada objeto que recorra.. */
                 return <CardItem key={character.id} /**retorno un component CardItem, al que ademas le paso props..*/
                     id={character.id}
@@ -15,7 +16,7 @@ const CardsList = (props) => {/**lo que recibo en el obejto props es un array ch
                     onClose={props.onClose}
                 />
             })}
-        </div>
+        </CardsListContainer>
     )
 }
 

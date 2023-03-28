@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import style from "./CardItem.module.css"
 
 const CardItem = (props) => { /**me llega un obj dentro del obj props */
 
@@ -6,7 +7,7 @@ const CardItem = (props) => { /**me llega un obj dentro del obj props */
     return (/**aca pinto con JSX como si fuera HTML y dentro de { }traigo las propiedades que llegaron por objprops */
         <>
 
-            <div>
+            <div className={style.CardItem}> 
 
 
                 <button onClick={() => onClose(id)}>X</button>

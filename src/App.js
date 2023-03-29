@@ -7,6 +7,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import About from './Views/About/About';
 import Detail from './components/Detail/Detail';
 import Forms from './components/Forms/Forms';
+import Favorites from './components/Favorites/Favorites';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 
   //---------SIMULACION DE VALIDACION
   const email = "rick_sanchez@gmail.com"
-  const password = "WubbaLubbaDubDub1" 
+  const password = "WubbaLubbaDubDub1"
 
   const login = (userData) => {                               //login es una funcion que recibe por parametro userData de <Forms/>
     if (userData.email === email && userData.password === password) {  // si el mail y passw coinciden ...
@@ -65,7 +66,7 @@ function App() {
     <div className="App">
 
 
-      {location.pathname === "/" ? <Forms login={login} /*funcion login por props*//> : <Nav onSearch={onSearch} /*app le pasa por prop la funcion onSearch*/ 
+      {location.pathname === "/" ? <Forms login={login} /*funcion login por props*/ /> : <Nav onSearch={onSearch} /*app le pasa por prop la funcion onSearch*/
       /*SI LOCATION.PATHNAME = a "/"->RENDER FORMS,sino RENDER NAV*/ />}
 
       <Routes /*Routes envuelve a todo lo que vayamos a navegar */>
@@ -73,7 +74,7 @@ function App() {
         <Route path="/home" element={<CardsList characters={characters} onClose={onClose} />} /*app le pasa por prop characters y la funcion onClose*/ />
         <Route path="/about" element={<About />} />
         <Route path='/detail/:id' element={<Detail />}  /*aca le estoy diciendo que cuando este en la ruta detail/ (cualquier cosa) o mejor dicho id que viene de  cardItem, me pinte el componente detail*/ />
-
+        <Route path='/favorites' element={<Favorites/>} />
 
       </Routes>
 

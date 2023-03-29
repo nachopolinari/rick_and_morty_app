@@ -7,9 +7,14 @@ const Nav = (props) => { //nav solo se encarga de hacer un pasamanos
 
     return (
         <div className={style.NavStyle}>
-            <Link to="/" /*extra de forms->si tocas logout te lleva al inicio*/ >LogOut</Link> 
-            <Link to="/about" >About</Link>
             <Link to="/home">Home</Link>
+            <br />
+            <Link to="/about" >About</Link>
+            <br />
+            <Link to='/favorites'>Favorites</Link>
+            <br />
+            <Link to="/" /*extra de forms->si tocas logout te lleva al inicio*/ >LogOut</Link> 
+            <br />
             <SearchBar onSearch={props.onSearch} />
         </div>
     )
